@@ -1,0 +1,107 @@
+<%- include ('../common/header') -%>
+
+    <%- include ('../common/slider') -%>
+        <div class="biscuit_coeur">
+            <img src="assets/absolute/biscuit_coeur.png" alt="" width="268" height="242">
+        </div>
+        <div class="biscuit_cookie">
+            <img src="assets/absolute/biscuit_cookie.png" alt="" width="276" height="188">
+        </div>
+        <div class="content">
+            <div class="content_pres">
+                <div class="content_pres_bloc">
+                    <div class="content_pres-title">"Aussi bons que beaux"</div>
+                    <div class="content_pres-desc">
+                        <p>Nos biscuits sont avant tout des biscuits artisanaux réalisés à la commande. Nous sélectionnons soigneusement nos ingrédients et veillons à ce que nos biscuits soient aussi bons que beaux.</p>
+                        <p>Pour un biscuit unique, nous pouvons personnaliser vos biscuits avec des textes, dessins ou photos de votre choix. Nous proposons également des choix importants de formes et de glaçages pour un biscuit unique.</p>
+                        <p>L’ensemble de notre production de biscuits, de meringues ou de biscuits décorés est mise en sachet à la main pour proposer un packaging original qui vous permettra d’offrir nos gourmandises et qui saura se démarquer dans les épiceries
+                            fines.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="content_vente">
+                <div class="content_vente-title">Nos meilleures ventes</div>
+                <div class="content_vente-items">
+
+                    <% product.forEach(item => { %>
+
+                        <% if(item.fav) { %>
+                            <div class="wrapper">
+                                <div class="container_prod">
+                                    <div class="top">
+                                        <img src="<%= item.image %>">
+                                    </div>
+                                    <div class="bottom">
+                                        <div class="left">
+                                            <div class="details">
+                                                <h1>
+                                                    <%= item.name %>
+                                                </h1>
+                                                <p>
+                                                    <%= item.price %>€ <span class="ttc">(TTC)</span>
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="inside">
+                                    <div class="icon"><i class="material-icons"><i class="fa-solid fa-circle-info"></i></i>
+                                    </div>
+                                    <div class="contents">
+                                        <%= item.description %>
+                                            </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <% } %>
+                                <% }) %>
+
+
+
+
+                                    <!-- <div class="item_vente">
+                                    <div class="item_vente-img">
+                                        <img src="assets/products/sables-au-comte.jpg" alt="">
+                                    </div>
+                                    <div class="item_vente-title">Sablés au comté</div>
+
+                                    <div class="item_vente-desc">Sachet de 90 grs.</div>
+                                    <div class="item_vente-price">4,80 € <span class="ttc">(TTC)</span></div>
+                                </div>
+                                <div class="item_vente">
+                                    <div class="item_vente-img">
+                                        <img src="assets/products/sables-au-comte.jpg" alt="">
+                                    </div>
+                                    <div class="item_vente-title">Sablés au comté</div>
+
+                                    <div class="item_vente-desc">Sachet de 90 grs.</div>
+                                    <div class="item_vente-price">4,80 € <span class="ttc">(TTC)</span></div>
+                                </div>
+                                <div class="item_vente">
+                                    <div class="item_vente-img">
+                                        <img src="assets/products/sables-au-comte.jpg" alt="">
+                                    </div>
+                                    <div class="item_vente-title">Sablés au comté</div>
+
+                                    <div class="item_vente-desc">Sachet de 90 grs.</div>
+                                    <div class="item_vente-price">4,80 € <span class="ttc">(TTC)</span></div>
+                                </div>
+                                <div class="item_vente">
+                                    <div class="item_vente-img">
+                                        <img src="assets/products/sables-au-comte.jpg" alt="">
+                                    </div>
+                                    <div class="item_vente-title">Sablés au comté</div>
+
+                                    <div class="item_vente-desc">Sachet de 90 grs.</div>
+                                    <div class="item_vente-price">4,80 € <span class="ttc">(TTC)</span></div>
+                                </div> -->
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <%- include ('../common/footer') -%>

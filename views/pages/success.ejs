@@ -1,0 +1,25 @@
+<%- include ('../common/header') -%>
+
+    <style>
+        .content_success {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 3rem;
+            flex-direction: column;
+            gap: .5rem;
+        }
+        
+        .content_success img {
+            border-radius: .5rem;
+        }
+    </style>
+
+    <div class="content_success">
+
+        <h1>Mail envoyé avec succès</h1>
+        <p>Nous répondrons à votre demande dès que possible</p>
+        <a href="/" class="btn btn--stripe" style="margin-top: 1rem;">Revenir à la page d'accueil</a>
+
+    </div>
+    <%- include ('../common/footer') -%>

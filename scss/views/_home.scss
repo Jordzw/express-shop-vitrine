@@ -1,0 +1,134 @@
+.content {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+}
+
+.content_pres {
+    padding: 4rem 2rem;
+    background: #e4f1fe;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    &-title {
+        font-family: 'Pacifico', cursive;
+        font-size: 3.3em;
+        text-align: center;
+        line-height: 1.3;
+        margin-bottom: 2rem;
+    }
+    &-desc {
+        p {
+            color: #312c2c;
+            display: block;
+            text-align: justify;
+            font-family: "lato", sans-serif;
+            width: 70%;
+            margin: 20px auto;
+            font-size: 1.2em;
+        }
+    }
+}
+
+.content_pres_bloc {
+    width: 100%;
+}
+
+.content_vente {
+    padding: 3rem 0 4.5rem 0;
+    display: flex;
+    background: $white;
+    width: 100%;
+    flex-direction: column;
+    gap: 2rem;
+    &-title {
+        font-family: 'Pacifico', cursive;
+        font-size: 3.3em;
+        text-align: center;
+    }
+}
+
+.content_vente-items {
+    display: flex;
+    justify-content: center;
+    gap: 4.5rem;
+    flex-wrap: wrap;
+}
+
+.item_vente {
+    max-width: 205px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    text-align: center;
+    font-family: arial;
+    padding: 0 1rem 1rem 1rem;
+    border-radius: 1rem;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    gap: .5rem;
+    img {
+        width: 205px;
+        border-top-left-radius: .5rem;
+        border-top-right-radius: .5rem;
+    }
+    &-title {
+        font-weight: bold;
+        font-size: 1.6em;
+    }
+    &-price {
+        border: none;
+        outline: 0;
+        padding: 12px;
+        color: $white;
+        background-color: #000;
+        text-align: center;
+        cursor: pointer;
+        width: 100%;
+        font-size: 18px;
+        border-radius: .5rem;
+        span.ttc {
+            color: $white;
+            font-size: .65em;
+        }
+    }
+}
+
+.biscuit_coeur {
+    float: right;
+    left: -195px;
+    height: 0;
+    width: 0;
+    position: relative;
+    bottom: 150px;
+    z-index: 10;
+}
+
+.biscuit_cookie {
+    float: left;
+    position: relative;
+    bottom: -400px;
+    left: -125px;
+    height: 0;
+    width: 0;
+}
+
+@media only screen and(max-width: 750px) {
+    .content_pres {
+        padding: 4rem 0;
+    }
+    .content_vente {
+        padding: 3rem 1rem 4.5rem 1rem;
+    }
+}
+
+@media only screen and(max-width: 1240px) {
+    .biscuit_coeur,
+    .biscuit_cookie {
+        display: none;
+    }
+}

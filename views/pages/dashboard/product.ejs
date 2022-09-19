@@ -1,0 +1,163 @@
+<%- include ('../../common/header') -%>
+
+    <div class="content_center">
+        <div class="content_center-title">Ajouter ou modifier les produits</div>
+
+
+
+        <div class="content_add_items_admin">
+            <form role="form" action="/admin/product" method="POST" enctype="multipart/form-data">
+                <div class="admin_item_add">
+
+                    <div class="admin_item_content">
+                        <div class="form-group-input">
+                            <h1>Add product</h1>
+                        </div>
+                        <div class="form-group-input">
+                            <span>Nom</span>
+                            <input class="form-field" type="text" name="name" value="">
+                        </div>
+                        <div class="form-group-input">
+                            <span>Prix</span>
+                            <input class="form-field" type="text" name="price" value="">
+                        </div>
+                        <div class="form-group-input">
+                            <span>Description</span>
+                            <input class="form-field" type="text" name="description" value="">
+                        </div>
+
+                        <div class="form-group-input">
+                            <span>Categorie</span>
+                            <select name="cat" class="form-field admin_item-cat w-100">
+                                
+                            <% category.forEach(cat => { %>
+                                <option value="<%= cat.name %>" class="form__label"><%= cat.name %></option>
+                            <% }) %>
+                        </select>
+
+                        </div>
+
+                        <div class="form-group-input">
+                            <span>Image</span>
+
+                            <input type="file" name="file" class="w-100 form-field" id="file" accept="image/png, image/jpeg" />
+                        </div>
+
+                        <div class="form-group-send">
+                            <input type="submit" class="form-field2 checkbox-sub" name="addProduct" value="Envoyer">
+
+                            <input type="checkbox" name="fav" id="new_item" class="toggle-hid" />
+
+                            <label for="new_item" class="toggleWrapper">
+                                <i class="fa-solid fa-star"></i>
+                              </label>
+                        </div>
+
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="content_items_admin">
+            <% product.forEach(item => { %>
+                <form role="form" action="/admin/product" method="POST" enctype="multipart/form-data">
+                    <input type="hidden" name="item_id" value="<%= item.id %>">
+
+                    <div class="admin_item">
+                        <div class="admin_item-img">
+                            <img src="<%= item.image %>" alt="">
+                            <div class="admin_item-img-price">
+                                <span>Prix</span>
+                                <input class="form-field prix-inp" type="number" placeholder="Prix" name="price" value="<%= item.price %>" step="any">
+                            </div>
+                        </div>
+
+
+
+                        <div class="admin_item_content">
+                            <div class="form-group-input">
+                                <span>Nom</span>
+                                <input class="form-field" type="text" name="name" value="<%= item.name %>">
+                            </div>
+
+                            <div class="form-group-input">
+                                <span>Description</span>
+                                <input class="form-field" type="text" name="description" value="<%= item.description %>">
+                            </div>
+
+                            <div class="form-group-input">
+                                <span>Categorie</span>
+                                <select name="cat" class="form-field admin_item-cat w-100">
+                                    
+                                <% category.forEach(cat => { %>
+                                    <option value="<%= cat.name %>" class="form__label"><%= cat.name %></option>
+                                <% }) %>
+                                <option selected="selected" disabled><%= item.category %></option>
+                            </select>
+
+                            </div>
+
+                            <div class="form-group-input">
+                                <span>Image</span>
+                                <!-- <form action="/fileupload" method="post" enctype="multipart/form-data">
+                        <input type="file" name="filetoupload">
+                        <input type="submit">
+                    </form> -->
+                                <input type="file" name="file" class="w-100 form-field" id="file" accept="image/png, image/jpeg" />
+                            </div>
+
+                            <div class="form-group-send">
+                                <input type="submit" class="form-field2 checkbox-sub" name="editProduct" value="Modifier">
+                                <% if(item.fav) { %>
+                                    <input type="checkbox" name="fav" id="<%= item.id %>" class="toggle-hid" checked />
+                                    <% } else { %>
+                                        <input type="checkbox" name="fav" id="<%= item.id %>" class="toggle-hid" />
+                                        <% } %>
+                                            <label for="<%= item.id %>" class="toggleWrapper">
+                                    <i class="fa-solid fa-star"></i>
+                                  </label>
+                                            <button type="submit" name="delProduct" class="toggleWrapper" id="delete">
+                                    <label for="delete"><i class="fa-solid fa-trash big"></i></label>
+                                </button>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </form>
+                <% }) %>
+
+        </div>
+
+
+    </div>
+
+    <script type="text/javascript">
+        $('.click').click(function() {
+            if ($('span').hasClass("fa-star")) {
+                $('.click').removeClass('active')
+                setTimeout(function() {
+                    $('.click').removeClass('active-2')
+                }, 30)
+                $('.click').removeClass('active-3')
+                setTimeout(function() {
+                    $('span').removeClass('fa-star')
+                    $('span').addClass('fa-star-o')
+                }, 15)
+            } else {
+                $('.click').addClass('active')
+                $('.click').addClass('active-2')
+                setTimeout(function() {
+                    $('span').addClass('fa-star')
+                    $('span').removeClass('fa-star-o')
+                }, 150)
+                setTimeout(function() {
+                    $('.click').addClass('active-3')
+                }, 150)
+                $('.info').addClass('info-tog')
+                setTimeout(function() {
+                    $('.info').removeClass('info-tog')
+                }, 1000)
+            }
+        })
+    </script>
+    <%- include ('../../common/footer') -%>

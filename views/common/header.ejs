@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/fontawesome.min.css">
+    <link rel="stylesheet" href="/static/style.css">
+
+    <title>Plaisirs Fondants</title>
+
+
+</head>
+
+<div class="m_header">
+    <div class="m_header-banner">
+        <figure id="ribbon">
+            <% if (typeof user === 'undefined') {%>
+                <span class="caption"><a href="/login">LOGIN</a></span>
+                <% } else { %>
+                    <span class="caption"><a href="/login"><%= user %> &nbsp;</a><a href="/logout"><i class="fa-solid fa-arrow-right-from-bracket"></i></a></span>
+
+                    <% } %>
+        </figure>
+        <a href="/"><img src="/assets/header.jpg" alt=""></a>
+    </div>
+
+    <nav class="topnav nav-pc" id="myTopnav">
+        <a href="/">Accueil</a>
+        <div class="dropdown">
+            <button class="dropbtn">Nos Biscuits Traditionnels 
+            <i class="fa fa-caret-down"></i>
+          </button>
+            <div class="dropdown-content">
+                <% category.sort((a, b) => a.order - b.order).filter(cat => cat.category === 'Nos Biscuits Traditionnels').forEach(cat => { %>
+                    <% if(cat.show) { %>
+                        <a href="/<%= cat.url %>">
+                            <%= cat.name %>
+                        </a>
+                        <% } %>
+                            <% }) %>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">Nos Biscuits Imprimés
+            <i class="fa fa-caret-down"></i>
+          </button>
+            <div class="dropdown-content">
+                <% category.sort((a, b) => a.order - b.order).filter(cat => cat.category === 'Nos Biscuits Imprimés').forEach(cat => { %>
+                    <% if(cat.show) { %>
+                        <a href="/<%= cat.url %>">
+                            <%= cat.name %>
+                        </a>
+                        <% } %>
+                            <% }) %>
+            </div>
+        </div>
+        <a href="/contact">Nous contacter</a>
+        <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+    </nav>
+
+    <nav class="nav-mob">
+        <span class="hamburger material-icons" id="ham">menu</span>
+
+        <div class="nav-drill">
+            <ul class="nav-items nav-level-1">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">
+                    Accueil
+                </a>
+                </li>
+                <li class="nav-item nav-expand">
+                    <a class="nav-link nav-expand-link" href="#">
+                        Nos Biscuits Traditionnels
+                </a>
+                    <ul class="nav-items nav-expand-content">
+                        <% category.sort((a, b) => a.order - b.order).filter(cat => cat.category === 'Nos Biscuits Traditionnels').forEach(cat => { %>
+                            <% if (cat.show) { %>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/<%= cat.url %>">
+                                        <%= cat.name %>
+                                    </a>
+                                </li>
+                                <% } %>
+
+                                    <% }) %>
+                    </ul>
+                </li>
+                <li class="nav-item nav-expand">
+                    <a class="nav-link nav-expand-link" href="#">
+                        Nos Biscuits Imprimés
+                </a>
+                    <ul class="nav-items nav-expand-content">
+                        <% category.sort((a, b) => a.order - b.order).filter(cat => cat.category === 'Nos Biscuits Imprimés').forEach(cat => { %>
+                            <% if (cat.show) { %>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/<%= cat.url %>">
+                                        <%= cat.name %>
+                                    </a>
+                                </li>
+                                <% } %>
+
+                                    <% }) %>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/contact">
+                    Nous contacter
+                </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+</div>
+
+
+<body>

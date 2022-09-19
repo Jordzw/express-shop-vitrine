@@ -1,0 +1,136 @@
+<%- include ('../../common/header') -%>
+
+    <div class="content_category">
+
+        <div class="content_category-title">Catégories Biscuits</div>
+        <div class="content_category-panel">
+
+            <form role="form" action="/admin/category" method="POST">
+                <div class="admin_item_add">
+
+                    <div class="admin_item_content">
+                        <div class="form-group-input">
+                            <h1>Add Catégorie</h1>
+                        </div>
+                        <div class="form-group-input">
+                            <span>Nom</span>
+                            <input class="form-field" type="text" name="name">
+                        </div>
+                        <div class="form-group-input">
+                            <span>URL</span>
+                            <input class="form-field" type="text" name="url">
+                        </div>
+                        <div class="form-group-input">
+                            <span>Description</span>
+                            <input class="form-field" type="text" name="description">
+                        </div>
+                        <div class="form-group-input">
+                            <span>Catégorie</span>
+                            <select class="form-field" name="category">
+                                <option value="" disabled selected>--Choisi une option--</option>
+                                <% for(let i=0;i<header_item.length; i++ ) { %>
+                                    <option value="<%= header_item[i].name %>"><%= header_item[i].name %></option>
+                                    <% } %>
+                                </select>
+                        </div>
+
+                        <div class="form-group-input">
+                            <span>Ordre</span>
+                            <select class="form-field" name="order">
+                            <option value="" disabled selected>--Choisi une option--</option>
+                            <% for(let i=1;i<category.length + 2; i++ ) { %>
+                                <option value="<%= i %>"><%= i %></option>
+                                <% } %>
+                            </select>
+                        </div>
+
+
+                        <div class="form-group-send">
+                            <input type="submit" class="form-field2 checkbox-sub" name="addCategory" value="Envoyer">
+                            <input type="checkbox" name="show" id="new_item" class="toggle-hid" />
+                            <label for="new_item" class="toggleWrapper">
+                            <i class="fa-solid fa-eye"></i>
+                          </label>
+                        </div>
+
+                    </div>
+                </div>
+            </form>
+
+            <div class="content_category-item-panel">
+                <div class="form-group-input">
+                    <h1>Modification Catégorie</h1>
+                </div>
+
+
+                <% header_item.forEach(item => { %>
+
+                    <h3>
+                        <%= item.name %>
+                    </h3>
+
+                    <% category.filter(name => name.category == item.name).forEach(cat => { %>
+                        <form role="form" action="/admin/category" method="POST">
+
+                            <input type="hidden" name="item_id" value="<%= cat.id %>">
+
+                            <div class="content_category-item">
+                                <div class="form-group-input">
+
+                                    <span>Nom</span>
+                                    <input class="form-field" type="text" name="name" value="<%= cat.name %>">
+
+                                    <span>Description</span>
+                                    <input class="form-field" type="text" name="description" value="<%= cat.description %>">
+
+                                    <span>URL</span>
+                                    <input class="form-field" type="text" name="url" value="<%= cat.url %>">
+
+                                    <span>Ordre</span>
+                                    <select class="form-field" name="order">
+                                        <option value="<%= cat.order %>" selected><%= cat.order %></option>
+                                        <% for(let i=1;i<category.length + 2; i++ ) { %>
+                                            <% if(i != cat.order) { %>
+                                            <option value="<%= i %>" name="order"><%= i %></option>
+                                            <% }} %>
+                                        </select>
+
+                                    <span>Catégorie</span>
+                                    <select class="form-field" name="category">
+                                            <option value="<%= cat.category %>" selected><%= cat.category %></option>
+                                            <% for(let i=0;i<header_item.length; i++ ) { %>
+                                                <% if(header_item[i].name != cat.category){ %>
+                                                <option value="<%= header_item[i].name %>"><%= header_item[i].name %></option>
+                                                <% }} %>
+                                            </select>
+
+                                    <span>Show</span>
+                                    <% if(cat.show) { %>
+                                        <input type="checkbox" name="show" id="<%= cat.id %>" class="toggle-hid" checked>
+                                        <% } else { %>
+                                            <input type="checkbox" name="show" id="<%= cat.id %>" class="toggle-hid">
+                                            <% } %>
+                                                <label for="<%= cat.id %>" class="toggleWrapper form-field">
+                                    <i class="fa-solid fa-eye"></i>
+                                  </label>
+
+
+                                                <input type="submit" class="form-field2 checkbox-sub btn-modif" name="editCategory" value="Modifier">
+                                                <input type="submit" class="form-field2 checkbox-sub btn-del" name="delCat" value="🗑️">
+
+                                </div>
+
+                            </div>
+                        </form>
+                        <% }) %>
+
+
+                            <% }) %>
+            </div>
+
+        </div>
+
+
+    </div>
+    </div>
+    <%- include ('../../common/footer') -%>

@@ -1,0 +1,28 @@
+$header-color: rgba(254, 249, 237, 255);
+$white: #fefefe;
+$black: #2a2b2f;
+$grey: #eaeaea;
+$primary-color: #867c99;
+;
+$primary-color-dark: darken( $primary-color, 10%);
+$primary-color-tint-1: lighten( $primary-color, 10%);
+$primary-color-tint-2: lighten( $primary-color, 20%);
+$primary-color-tint-3: lighten( $primary-color, 30%);
+$primary-color-tint-4: lighten( $primary-color, 40%);
+$primary-color-tint-5: lighten( $primary-color, 50%);
+$primary-font: "Fira Sans",
+Arial,
+sans-serif;
+$link-color: $primary-color;
+$nav-width: 250px;
+$nav-padding: 0.875em 1em;
+$nav-border-color: $primary-color-tint-5;
+$nav-background-color: $white;
+$nav-icon-font: 'Material Icons';
+$nav-icon-arrow-right: 'chevron_right';
+$nav-icon-arrow-left: 'chevron_left';
+$nav-level-border-color: $primary-color;
+$nav-level-background-color: $primary-color-tint-5;
+$nav-level3-background-color: $primary-color-tint-4;
+$nav-level4-background-color: $primary-color-tint-3;
+$nav-level5-background-color: $primary-color-tint-2;

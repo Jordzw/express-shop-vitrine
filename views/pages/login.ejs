@@ -1,0 +1,16 @@
+<%- include ('../common/header') -%>
+
+    <div class="content_center">
+
+        <div class="content_center-title">Login</div>
+        <form action="/admin/login" method="POST" class="login-form">
+            <div class="login-group">
+                <input type="email" class="form-control" placeholder="email" name="email">
+                <input type="password" class="form-control" name="password" placeholder="password">
+            </div>
+            <button type="submit" class="btn btn--stripe">Submit</button>
+        </form>
+
+    </div>
+
+    <%- include ('../common/footer') -%>

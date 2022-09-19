@@ -1,0 +1,49 @@
+<%- include ('../../common/header') -%>
+    <div class="content_product">
+        <div class="content_list-title">Nos biscuits imprimés</div>
+
+
+        <div class="products_content">
+
+            <% product.filter(cat => cat.category == 'Nos biscuits Imprimés').forEach(item => { %>
+
+
+                <div class="wrapper">
+                    <div class="container_prod">
+                        <div class="top">
+                            <img src="<%= item.image %>">
+                        </div>
+                        <div class="bottom">
+                            <div class="left">
+                                <div class="details">
+                                    <h1>
+                                        <%= item.name %>
+                                    </h1>
+                                    <p>
+                                        <%= item.price %>€ <span class="ttc">(TTC)</span>
+                                    </p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="inside">
+                        <div class="icon"><i class="material-icons"><i class="fa-solid fa-circle-info"></i></i>
+                        </div>
+                        <div class="contents">
+                            <%= item.description %>
+                                </table>
+                        </div>
+                    </div>
+                </div>
+
+
+                <% }) %>
+
+
+
+
+        </div>
+
+    </div>
+    <%- include ('../../common/footer') -%>

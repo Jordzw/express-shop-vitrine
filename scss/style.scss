@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+@import 'utils/variables';
+@import 'utils/navbar';
+@import 'utils/footer';
+@import 'utils/slider';
+@import 'utils/input';
+@import 'views/home';
+@import 'views/conditions';
+@import 'utils/product';
+@import 'views/admin/products';
+@import 'views/admin/admin';
+@import 'views/admin/category';
+@import 'views/contact';
+
+* {
+    list-style: none;
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
+    color: $black;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+.content_center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 2.5rem;
+    flex-direction: column;
+    gap: 1.5rem;
+    &-title {
+        font-family: 'Pacifico', cursive;
+        font-size: 3.3em;
+        text-align: center;
+    }
+}
